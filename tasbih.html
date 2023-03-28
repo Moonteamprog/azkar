@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet"  href="css/all.css" />
+    <link rel="stylesheet" href="./css/dropdown.css">
+  >
+
+
+</head>
+<body>
+    <header> 
+        <a  style="text-decoration: none; " href="index.html" class="logo"><span  > MOON TEAM </span>   </a>
+      
+    <!-- logo  -->
+    <ul class="navbar" >
+        <li> <a href="index.html" class="active" >الصحفة الرئيسية</a></li>
+        <li> <a href="untiled4.html">القرآن الكريم</a>   </li>
+        <li> <a href="index5.html">الأربعين النووية </a>   </li>
+        <li> <a href="untitled-2.html">أفضل الأذكار</a></li>
+        <li> <a href="Untitled-3.html">أسماء الله الحسنى</a>   </li>
+        <li> <a href="Untitled-1.html">الرقية الشرعية</a>   </li>
+
+        
+      <!-- Dropdown -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+  أذكار المسلم
+        </a>
+        <div class="dropdown-menu">
+          <!-- <a class="dropdown-item" href="قران.html"  target="_blank">صوت القرآن </a> -->
+          <a class="dropdown-item" href="أذكار الصباح.html">أذكار الصباح</a>
+          <a class="dropdown-item" href="اذكار المساء ت.html">أذكار المساء</a>
+          <a class="dropdown-item" href="أذكار الصلاة.html">أذكار الصلاة</a>
+          <a class="dropdown-item" href="أذكار نبوية.html">أذكار عامة</a>
+          <a class="dropdown-item" href="tasbih.html">مسبحة </a>
+          
+        </div>
+      </li>
+    <!-- navbar -->
+    
+    
+    <!-- <input class="form-control mr-sm-3" type="text" style="width: auto;  "  placeholder="Search">
+    <button class="btn btn-success" type="submit"  >Search</button> -->
+    
+    </ul>
+    <div class="main">
+    <!-- <a href="./sigin.html" class="user" ><i class="fas fa-user"></i>Sigin un </a>
+    <a href="shop.html" class="user"  ><i class="fas fa-cart-plus"     ></i>Add</a> -->
+    <div><i class="fas fa-bars"  id="menu-icon"></i></div>
+
+    
+    
+    </div>
+    <!--  login in  and menu -->
+    
+    </header>
+    <br>
+
+
+    <br><br><br>
+    <div class="hed">  
+      <span><div style="opacity: 0; display: inline;">f</div><div style=" display: inline;" id="text-title"> تسبيح</div></span>
+</div>   
+
+<div class="tas" > 
+
+   <!-- <h4>تسبيح</h4> -->
+    <div id="lab"  >0</div>
+ 
+ 
+    <div id="zkr"></div>
+
+ 
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="./bootstrap/js/bootstrap.bundle.min.js"></script>
+ <script  >
+ 
+ 
+ 
+ zkr.onclick = () => lab.innerHTML = parseInt(lab.innerHTML) + 1
+ 
+   // عند النزول على الصفحة تظهر و عند الذهاب تختفي
+//  setInterval( () => {
+//    if( window.pageYOffset > 500 ) {
+//      zkr.style.opacity = 1
+//    } else {
+//      zkr.style.opacity = 0
+//    }
+//  } , 1000 )
+
+
+let menu=document.querySelector('#menu-icon');
+let navbar=document.querySelector('.navbar');
+
+
+menu.onclick= () => {
+    menu.classList.toggle('bx-x')
+    navbar.classList.toggle('open')
+};
+
+let value_text_title = document.getElementById('text-title').innerHTML , stat_value = false
+ let value_new = null
+         setInterval( () => {
+             if( stat_value ) {
+                 document.getElementById('text-title').innerHTML = ' '
+                 for( var j = 0 ; j < value_text_title.length ; j++ ) {
+                     setTime_fun(j , value_text_title[j] , true)
+                 }
+             } else {
+                 for( var j = 0 ; j < value_text_title.length ; j++ ) {
+                     
+                     setTime_fun(j , j , false)
+                 }
+             }
+ 
+             stat_value = !stat_value
+ 
+             
+         } , (value_text_title.length * 52) + 2000 )
+ 
+ 
+         function setTime_fun( time , text , stat ) {
+             if( stat ) {
+                 setTimeout( () => {
+                     document.getElementById('text-title').innerHTML += text
+                 } , time * 150 )
+             } else {
+                 setTimeout( () => {
+                     value_new = ' '
+                     for( var j = 0 ; j < value_text_title.length ; j++ ) {
+                        if( value_text_title.length-text > j+1 ) value_new += value_text_title[j]
+                     }
+                     document.getElementById('text-title').innerHTML = value_new
+                 } , time * 150 )
+             };
+         };
+
+
+</script>
+
+
+
+    
+</body>
+</html>
